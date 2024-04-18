@@ -7,10 +7,10 @@
     class employee {
 
     private:
-
+    // data member that's store details of employee
     int id;
     string name;
-    string qualification;
+    string qualification;  
     float experiance;
     long long int contact;
     static int number;
@@ -19,7 +19,7 @@
     protected:
 
 
-    void getempdata(){
+    void getempdata(){  // get employee details from the user
 
     cout << "Enter Employee ID : ";
     cin >> id;
@@ -36,13 +36,16 @@
     cout << "Enter Contact NO. of Employee : ";
     cin >> contact;
 
+    number++;  // when  add new emp. data then increase no. of emp. by 1.
+    sum_exp +=experiance; // adding experiance of all emp. to future use.
+
     
 
     }
 
-
-   void putempdata(){
-
+  
+   void putempdata(){       // display details of employee.
+    
     cout << "Employee ID   : " << id << endl;
 
     cout << "Employee Name : " << name << endl;
@@ -57,26 +60,37 @@
     }
 
 
-    int emp_serach(){
+    int emp_serach(){  // return employee id to used in serching emp. id
 
         return id;
     }
 
+    public:
+
+    static void Average_exp(){     // calculate avg. experiance of emp. using number and sum_exp.
+
+    cout << "Average Experiance of Employee : " << sum_exp/number << endl;
+}
+
     };
 
 
-    class TeachingEmployee : public employee{
+int employee :: number=0;  // declare static veriable and also initalize.
+float employee :: sum_exp=0;
+
+
+    class TeachingEmployee : public employee{  // TechingEmployee class inherit from employee class
 
     private:
 
     string Designation;
-    string Specialization;
+    string Specialization;  
     string PayScale;
 
 
     public:
 
-    void gettempdata(){
+    void gettempdata(){  // get teaching emp. data
 
     getempdata();
     
@@ -92,7 +106,7 @@
 
     }
 
-    void puttempdata(){
+    void puttempdata(){  // display non-teaching emp. data
 
     putempdata();
     cout << "Designatino of Employee : " << Designation << endl;
@@ -104,13 +118,13 @@
 
         int searchtemp(){
 
-            return emp_serach();
+            return emp_serach();  // return emp. id
 
             }
     };
 
 
-    class NonTeachingEmployee : public employee{
+    class NonTeachingEmployee : public employee{  //  NonTeachingEmployee class inherit from the employee class.
 
     private:
 
@@ -118,7 +132,7 @@
 
     public:
 
-    void getntempdata(){
+    void getntempdata(){   // get data of NonTeachingEmployee 
         
     getempdata();
     cout << "Enter Salary of Employee : ";
@@ -126,7 +140,7 @@
 
     }
 
-    void putntempdata(){
+    void putntempdata(){ // display data of NonTeachingEmployee
 
     putempdata();   
     cout << "Salary of Employee : " << Salary << endl<<endl;
@@ -135,7 +149,7 @@
 
     int  Serachntemp(){
 
-          return emp_serach();
+          return emp_serach();  // return id of NonTeachingEmployee
 
 
     }
@@ -153,11 +167,11 @@
     cout << "Enter Number of Teaching Employee : ";
     cin >> teaching_emp;
 
-    TeachingEmployee Tea_emp[teaching_emp];
+    TeachingEmployee Tea_emp[teaching_emp];  // create no. of teaching_emp object of class TeachingEmployee
 
     for(int i=0; i<teaching_emp; i++){
 
-    Tea_emp[i].gettempdata();
+    Tea_emp[i].gettempdata();  // getting data of teaching emp.
     cout << endl;
 
     }
@@ -169,7 +183,7 @@
 
     for(int i=0; i<non_teaching_emp; i++){
 
-    Non_TeaEmp[i].getntempdata();
+    Non_TeaEmp[i].getntempdata();  // getting data of non-teaching emp. data
     cout << endl;
 
     }
@@ -177,7 +191,7 @@
 
     int Search_ID;
 
-    cout << "Enter Employee ID to Search : ";
+    cout << "Enter Employee ID to Search : ";  // return id of emp.
     cin >> Search_ID;
  
 
@@ -191,16 +205,16 @@ for(c=0; c<teaching_emp; c++){
 
 a=Tea_emp[c].searchtemp();
 
-if(a==Search_ID){
+if(a==Search_ID){  // compare id from the record
 
-Tea_emp[c].puttempdata();
-flage++;
+Tea_emp[c].puttempdata();  
+flage++;  // to know when flage>0 then id was found and loop will terminate.
 break;
 
 }
 
 }
-if(flage==0){
+if(flage==0){   // not found in teaching emp. data after then search in 
     
 for(c=0; c<non_teaching_emp; c++){
 
@@ -216,9 +230,13 @@ break;
 
 }
 
-}else{
+}else{   // if id not found in record then print msg.
     cout << "Employee Not Found!" << endl;
 }
+
+employee :: Average_exp();  // calling function to display avg. exp. of emp.
+
+
 
     }
 

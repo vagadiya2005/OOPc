@@ -7,8 +7,8 @@ struct employee
     
 private: 
 
-int id;
-char name[30];
+int id; 
+char name[30];  
 char qualification[40];
 float experiance;
 long long int contact;
@@ -16,7 +16,7 @@ long long int contact;
 
 public:
 
-void get_data(){
+void get_data(){   // function to get datamember from user
 
 cout << "Enter Employee ID : ";
 cin >> id;
@@ -38,7 +38,7 @@ cout << endl << endl;
 
 }
 
-void  display_data(){
+void  display_data(){  // function to display emp. data
 
 cout << "Employee ID   : " << id << endl;
 
@@ -55,7 +55,7 @@ cout << endl << endl;
 }
 
 
-int  search_id(){
+int  search_id(){  // function to return private emp. Id , used to search emp. Id is exists or not.
 
 return id;
 
@@ -71,13 +71,13 @@ cout << "Enter NO. of Employee : " ;
 int n;
 cin >> n;
 
-employee e[n];
+employee e[n];  // create object of employee
 
 int emp_id;
-int count=0;
+//int count=0;
 
 
-for(int i=0; i<n; i++){
+for(int i=0; i<n; i++){   // loop that's call get_data function to get emp. data
 
     cout << "Enter " << i+1 << " employee Details:" << endl;
 
@@ -87,8 +87,8 @@ for(int i=0; i<n; i++){
 
 
 char ch;
-int c;
-int a;
+int c;  // use for know given Id is exists or not.
+int a;  // store Id temperory.
 do{
 
 cout << "Enter employee ID for Search Employee Details : ";
@@ -100,7 +100,7 @@ a=e[c].search_id();
 
 if(a==emp_id){
 
-e[c].display_data();
+e[c].display_data();  // if Id was found then loop will break.
 break;
 
 }
@@ -116,7 +116,7 @@ if(c==n){
 
  cin >> ch;
 
-}while(ch=='Y' ||ch== 'y');
+}while(ch=='Y' ||ch== 'y');  // if ch =  y or  Y then loop will itreate again.
 
 
 }

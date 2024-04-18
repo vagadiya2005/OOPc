@@ -171,7 +171,7 @@ void getdata_student(){
 
 }
 
-void putdata_student(){
+void putdata_student(){  // display data of students.
 
     cout<<setw(15);
     cout<<left<<"Student ID"<<":  "<<Student_ID<<endl;
@@ -185,7 +185,7 @@ void putdata_student(){
 
 
 void getResult_data(result &r);
-void putResult_data(result &r);
+void putResult_data(result &r);  // function declaration.
 
 
 };
@@ -217,28 +217,27 @@ float total=0;
 float SGPA=0.0;
 
 
-float cal_SGPA(){
+float cal_SGPA(){ // function to calculate sgpa of student 
 
 
-for(int i=0; i<3; i++){
+for(int i=0; i<3; i++){  // adding theory + practical credit 
 
     total+=(theory_credit[i]*theory_gread_point[i])+(prectical_credit[i]*prectical_gread_point[i]);
 }
 
-SGPA=(float)total/(float)Total_credit;
+SGPA=(float)total/(float)Total_credit;  // calculate sgpa using credit and total credit
 
-//  total=total+(tc[y]*tgp[y])+(pc[y]*pgp[y]);
 return SGPA;
   
     }
 
      friend void student :: getResult_data(result &r);
-     friend void student :: putResult_data(result &r);
+     friend void student :: putResult_data(result &r);  // become friend function of class student
 
 
 };
 
-void student :: getResult_data(result &r)
+void student :: getResult_data(result &r)  // get result data of student.
 {
 
 cout << "Enter Subjects name : " << endl;
@@ -274,15 +273,14 @@ cin >> r.theory_marks[i];
 } // get result data
    
 
-void student :: putResult_data(result &r){
+void student :: putResult_data(result &r){  // display data of result.
 
        cout<<"\t\t\t   Theory     Practical"<<endl;
     for(int i=0;i<3;i++)
     {
         cout<<setw(29);
         cout<<r.sub_name[i]<<r.theory_gread[i]<<"\t\t"<<r.prectical_gread[i]<<endl;
-        //cout<<setw(10);
-        //cout<<grade_p[q]<<endl;
+     
     }
 
     float total=0;
@@ -303,9 +301,11 @@ void student :: putResult_data(result &r){
 int main(){
 
 
-result r;
-student s;
-s.getdata_student();
+result r; // create object of result class 
+student s;  // create object of student class
+
+// calling all of 4 function corresponding to student object and passing object of result class.
+s.getdata_student();  
 s.getResult_data(r);
 s.putdata_student();
 s.putResult_data(r);
