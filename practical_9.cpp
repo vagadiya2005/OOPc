@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std; 
  
- 
+class centimeter;
+
 class millimeter
 {
  
@@ -14,11 +15,7 @@ millimeter (){
     mm=0;
 }
 
-millimeter (centimeter &cmObj){
-
-mm=cmObj.return_cm()*10;
-
-}
+millimeter (centimeter &cmObj);
 
 
 void get_mm(){
@@ -73,10 +70,13 @@ void display_cm(){
  cout << "Centimeter : " << cm  << endl; 
 
 }
-
-
 };
 
+millimeter :: millimeter (centimeter &cmObj){
+
+mm=cmObj.return_cm()*10;
+
+}
 
 int main(){
  
@@ -90,7 +90,7 @@ switch (option)
 {
 case 1:
 
- millimeter m;
+ {millimeter m;
 
  m.get_mm();
 
@@ -101,24 +101,24 @@ case 1:
  c.display_cm();
 
     break;
+    }
 
     case 2:
 
-    centimeter c;
+    centimeter c1;
 
-    c.get_cm();
+    c1.get_cm();
 
-    millimeter m;
+    millimeter m1;
 
-    m=c;
+    m1=c1;
 
-    m.display_mm();
-    
+    m1.display_mm();
+  
 break;
 
 
-default:
-    break;
+
 }
 
 

@@ -87,7 +87,7 @@ int main(){
     switch(choice)
     {
     case 1:
-        cout<<"\nENTER SMART WATCH DATA\n"<<endl;
+        cout<<"Enter Watch data : "<<endl<<endl;
         cout<<"Enter product id : ";
         cin>>id;
         cout<<"Enter product name : ";
@@ -104,7 +104,7 @@ int main(){
         obj1->putdata();
         break;
     case 2:
-        cout<<"\n*****ENTER BADSHEET DATA*****\n"<<endl;
+        cout<<"Enter badSheet data"<<endl<<endl;
         cout<<"Enter product id : ";
         cin>>id;
         cout<<"Enter product name : ";
